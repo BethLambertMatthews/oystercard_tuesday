@@ -51,4 +51,22 @@ RSpec.describe Oystercard do
 
   end
 
+  describe "#in_journey?" do
+    it 'checks the journey status of a new oystercard' do
+      expect(@my_oystercard_b.in_journey?).to eq false
+    end
+  end
+
+  describe "#touch_in" do
+    it 'it changes the oystercard status to on a journey (@on_a_journey = true)' do
+      expect(@my_oystercard_b.touch_in).to eq true
+    end
+  end
+
+  describe "#touch_out" do
+    it 'it changes the oystercard status to not on a journey (@on_a_journey = false)' do
+      expect(@my_oystercard_b.touch_out).to eq false
+    end
+  end
+
 end
