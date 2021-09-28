@@ -31,6 +31,18 @@ RSpec.describe Oystercard do
     it 'should raise error when maximun balance of 90 reached' do
       expect(@my_oystercard_b.top_up(71)).to eq "Maximum limit of 90 reached"
     end
-  end   
+  end
+
+  describe "#deduct" do
+    it 'deducts the fare from my card' do
+      expect(@my_oystercard_b.deduct(5)).to eq 15
+    end
+
+    # it 'checks my balance is correct after deducting a fare' do
+    #   @my_oystercard_b.deduct(5)
+    #   expect(@my_oystercard_b.balance).to eq 15
+    # end
+
+  end
 
 end
