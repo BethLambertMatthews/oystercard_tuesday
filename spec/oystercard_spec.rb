@@ -5,6 +5,7 @@ RSpec.describe Oystercard do
   before(:each) do
     @my_oystercard_a = Oystercard.new(10)
     @my_oystercard_b = Oystercard.new(20)
+    @my_oystercard_c = Oystercard.new(0.5)
   end
 
   describe "#initialize" do
@@ -44,10 +45,10 @@ RSpec.describe Oystercard do
       expect(@my_oystercard_b.deduct(5)).to eq 15
     end
 
-    # it 'checks my balance is correct after deducting a fare' do
-    #   @my_oystercard_b.deduct(5)
-    #   expect(@my_oystercard_b.balance).to eq 15
-    # end
+    it 'checks my balance is correct after deducting a fare' do
+      @my_oystercard_b.deduct(5)
+      expect(@my_oystercard_b.balance).to eq 15
+    end
 
   end
 
@@ -61,6 +62,11 @@ RSpec.describe Oystercard do
     it 'it changes the oystercard status to on a journey (@on_a_journey = true)' do
       expect(@my_oystercard_b.touch_in).to eq true
     end
+
+    it 'throws an error if a card with unsufficient balance is touched in' do
+      expect{@my_oystercard_c.touch_in}.to raise_error("Insufficient card balance")
+    end
+
   end
 
   describe "#touch_out" do
