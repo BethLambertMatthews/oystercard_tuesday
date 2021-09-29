@@ -1,7 +1,7 @@
 require 'oystercard_class'
 
 RSpec.describe Oystercard do
-
+  # let(:subject) {described_class.new(10)}
   before(:each) do
     @my_oystercard_a = Oystercard.new(10)
     @my_oystercard_b = Oystercard.new(20)

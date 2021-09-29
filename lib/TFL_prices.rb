@@ -1,5 +1,5 @@
 class TFL_prices
-
+  TFL_MINIMUM_FARE = 1000
   def initialize
     @MINIMUM_FARE = 1
   end

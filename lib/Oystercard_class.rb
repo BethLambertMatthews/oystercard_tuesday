@@ -1,8 +1,12 @@
+require 'TFL_prices'
+
 class Oystercard
+  MAXIMUM_LIMIT = 90
 
   def initialize(starting_balance)
     @balance = starting_balance
-    @MAXIMUM_LIMIT = 90
+    @maximum_limit = MAXIMUM_LIMIT
+    # @maximum_limit = TFL_prices::TFL_MINIMUM_FARE
     @MINIMUM_FARE = 1
     @on_a_journey = false
   end
@@ -12,11 +16,11 @@ class Oystercard
   def top_up(amount)
     new_balance = (@balance + amount)
 
-    if  new_balance <= @MAXIMUM_LIMIT
+    if  new_balance <= @maximum_limit
       @balance = new_balance
       return  @balance
     else
-      p "Maximum limit of #{@MAXIMUM_LIMIT} reached"
+      p "Maximum limit of #{@maximum_limit} reached"
     end   
 
   end
